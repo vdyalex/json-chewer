@@ -1,0 +1,39 @@
+{
+  "name": "json-chewer",
+  "version": "1.0.0",
+  "description": "Generate random JSON file using pure javascript",
+  "bin": {
+    "json-chewer": "./bin/json-chewer.js"
+  },
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexndreazevedo/json-chewer.git"
+  },
+  "keywords": [
+    "json",
+    "generator",
+    "chewer",
+    "faker.js",
+    "fake",
+    "sample",
+    "es6",
+    "es2015",
+    "node"
+  ],
+  "author": "Alexandre Azevedo (https://github.com/alexndreazevedo)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexndreazevedo/json-chewer/issues"
+  },
+  "homepage": "https://github.com/alexndreazevedo/json-chewer#readme",
+  "dependencies": {
+    "commander": "^2.14.0",
+    "faker": "^4.1.0",
+    "import-cwd": "^2.1.0",
+    "is-bound-function": "^1.0.1"
+  }
+}
