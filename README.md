@@ -4,6 +4,17 @@
 
 ---
 
+## Benefits
+
+1.  Write reliable code and avoid mistakes with real javascript code.
+1.  Write complex algorithms in your own way.
+1.  Use the libraries you need for the seed file.
+1.  Use highlight from your favorite code editor.
+1.  Use all Javascript (ES5 and ES6) features.
+1.  Get rid of RegEx and eval methods to evaluate your own code.
+1.  Use both API and CLI for generating files.
+
+
 Instead of using string notations, you can write full javascript code:
 ```javascript
 // Madoka style
@@ -17,17 +28,7 @@ Instead of using string notations, you can write full javascript code:
 }
 ```
 
-It needs to write more but you get the benefits:
-1.  Write reliable code and avoid mistakes with real javascript code.
-1.  Write complex algorithms in your own way.
-1.  Use the libraries you need for the seed file.
-1.  Use highlight from your favorite code editor.
-1.  Use all Javascript (ES5 and ES6) features.
-1.  Get rid of RegEx and eval methods to evaluate your own code.
-1.  Use both API and CLI for generating files.
-
-
-## Instalattion
+## Installation
 
 Install it locally or globally as a npm package:
 ```bash
