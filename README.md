@@ -1,6 +1,7 @@
-## JSON Chewer
+# JSON Chewer
 
-**TL;DR:** Generate random JSON file using pure javascript. It removes the complexity and inconsistences from creating string-based methods such as in [madoka](https://www.npmjs.com/package/madoka).
+**TL;DR:**
+> Generate random JSON file using pure javascript. It removes the complexity and inconsistences from creating string-based methods such as in [madoka](https://www.npmjs.com/package/madoka).
 
 ---
 
