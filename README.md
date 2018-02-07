@@ -65,8 +65,6 @@ $ npm install --global json-chewer
 ---
 
 **IMPORTANT:** There are differences between creating repeated values and creating repeated values into functions:
-
-Using values:
 ```javascript
 module.exports = {
   users: repeat(5, faker.name.firstName())
@@ -74,17 +72,6 @@ module.exports = {
 // Output example
 {
   "user": [ "Mariela", "Mariela", "Mariela", "Mariela", "Mariela" ]
-}
-```
-
-Using functions:
-```javascript
-module.exports = {
-  users: repeat(5, () => faker.name.firstName())
-};
-// Output example
-{
-  "user": [ "Mariela", "Shanny", "Misael", "Tyrell", "Elian" ]
 }
 ```
 
