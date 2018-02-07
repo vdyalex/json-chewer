@@ -1,4 +1,4 @@
-# JSON Chewer
+## JSON Chewer
 
 **TL;DR:** Generate random JSON file using pure javascript. It removes the complexity and inconsistences from creating string-based methods such as in [madoka](https://www.npmjs.com/package/madoka).
 
@@ -79,11 +79,11 @@ module.exports = {
 
 There is a scope management on each parsing step. The generator automatically modifies the children properties' functions to bind their parent scopes.
 
-For instance:
 ```javascript
 module.exports = {
   username: () => faker.internet.userName(),
   profile: function () {
+    // 'this' inherited from parent object
     return `http://example.com/${this.username}`;
   }
 }
@@ -100,8 +100,12 @@ In case of arrays, it also binds the parent scope. However, it refers to the imm
 module.exports = {
   name: () => faker.commerce.product(),
   slogans: repeat(1, 5, function () {
+    // 'this' inherited from immediate parent object, skipping its array
+    const product = this.name;
+
     const adjective = faker.commerce.productAdjective();
-    return `${adjective} ${this.name}`;
+
+    return `${adjective} ${product}`;
   })
 }
 
@@ -116,6 +120,7 @@ module.exports = {
 }
 
 ```
+---
 
 **IMPORTANT:** Due to arrow function specifications, it's only possible to use `this` from lexical environment if it's **enclosed into a regular function**:
 ```javascript
@@ -123,7 +128,7 @@ module.exports = {
   username: () => faker.internet.userName(),
   link: function() {
     return {
-      profile: () => this.username
+      profile: () => this.username  // 'this' inherited from regular function
     }
   }
 }
@@ -137,9 +142,9 @@ module.exports = {
 }
 ```
 
-## Built-in
+## Built-in features
 
-### faker
+### Faker
 
 It includes [Faker](https://www.npmjs.com/package/faker) as a library for generating fake data samples.
 
@@ -151,7 +156,7 @@ It might be imported directly from the JSON Chewer:
 const { faker } = require('json-chewer');
 ```
 
-### repeat
+### Repeat
 
 There is a built-in function for generating arrays with specific values.
 
@@ -230,7 +235,7 @@ $ json-chewer
 ```
 
 
-## To-Dos
+## To-dos
 
 - [ ] Add built-in support for [moment](https://www.npmjs.com/package/moment)
 - [ ] Add built-in support for [lodash](https://www.npmjs.com/package/lodash)
