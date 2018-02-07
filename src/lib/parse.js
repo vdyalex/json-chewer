@@ -40,6 +40,10 @@ function parse(element) {
     return parseArray.call(this, element);
   }
 
+  if (element instanceof Date) {
+    return element;
+  }
+
   if (element instanceof Object) {
     return parseObject.call(this, element);
   }

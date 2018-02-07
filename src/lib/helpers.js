@@ -18,7 +18,20 @@ function writeFile(output, filename, isPretty = false) {
   console.info(`JSON saved into file ${filename}`);
 }
 
+function prepareLog(generated, isPretty = false, isVerbose = false) {
+  const options = { maxArrayLength: null, colors: true, depth: null };
+
+  if (isVerbose) {
+    return util.inspect(generated, options);
+  }
+
+  return isPretty
+    ? JSON.stringify(generated, null, '  ')
+    : JSON.stringify(generated);
+}
+
 module.exports = {
   fileExists,
+  prepareLog,
   writeFile
 };

@@ -5,7 +5,7 @@ const faker = require('faker');
 
 const repeat = require('./repeat');
 const parse = require('./lib/parse');
-const { fileExists, writeFile } = require('./lib/helpers');
+const { fileExists, prepareLog, writeFile } = require('./lib/helpers');
 
 function generate(template, isVerbose = false) {
   const start = Date.now();
@@ -21,9 +21,6 @@ function generate(template, isVerbose = false) {
 
 function execute(input, output, isPretty = false, isVerbose = false) {
   const template = importCwd(input);
-  const options = isVerbose
-    ? { maxArrayLength: null, colors: true, depth: null }
-    : { maxArrayLength: null, depth: null };
 
   try {
     const generated = generate(template, isVerbose);
@@ -33,15 +30,8 @@ function execute(input, output, isPretty = false, isVerbose = false) {
     }
 
     if (isVerbose || !output) {
-      if (isVerbose) {
-        console.log(util.inspect(generated, options));
-      } else {
-        if (isPretty) {
-          console.log(JSON.stringify(generated, null, '  '));
-        } else {
-          console.log(JSON.stringify(generated));
-        }
-      }
+      const log = prepareLog(generated, isPretty, isVerbose);
+      console.log(log);
     }
   } catch (e) {
     console.error('Error while processing the file.', e);
